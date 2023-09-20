@@ -5,6 +5,7 @@ using unsafe ArrOfPointers = int*[];
 using TupleNamed = (bool flag, double num, string str);
 using TupleIntString = (int, string);
 using unsafe sp = System.Span<int>*;
+using D = dynamic[];
 
 namespace UsingAlias
 {
@@ -23,13 +24,19 @@ namespace UsingAlias
     using unsafe D = delegate* unmanaged[Stdcall, SuppressGCTransition]<int, int>;
     using unsafe Del = delegate* unmanaged<string, delegate*<int>>;
     using unsafe Deleg = delegate*<delegate* managed<string, int>, delegate*<string, int>>;
-
+    using unsafe EnumT = MyEnum;
+    using static unsafe TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw;
+    using static Instance;
 
     internal class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+            //InstanceMethod();
+            TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw t =
+                new TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw();
+
         }
     }
     public delegate void FooBarDelegate(String x);
@@ -37,5 +44,24 @@ namespace UsingAlias
     public class TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw
     {
         private TupleIntString t = (10, "sfsff");
+
+        public static void Method() {}
+    }
+
+    unsafe class Instance
+    {
+        void Use()
+        {
+            static string toString(Instance i) => i.ToString();
+            delegate*<Instance, string> f = &toString;
+            f(this);
+        }
+
+        public static void InstanceMethod() { }
+    }
+
+    enum MyEnum
+    {
+        value1, value2, value3, value4, value5, value6
     }
 }

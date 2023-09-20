@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingAlias_Framework", "Usi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingAlias_Core", "UsingAlias_Core\UsingAlias_Core.csproj", "{05750381-86FF-4559-B8A6-18E2CF09227B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectReference", "ProjectReference\ProjectReference.csproj", "{2041E0D4-6C41-4C69-AE45-BC9761BC3D27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multitarget", "Multitarget\Multitarget.csproj", "{02C8EF6C-D3C2-487E-91D6-BFCE0381320A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{05750381-86FF-4559-B8A6-18E2CF09227B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05750381-86FF-4559-B8A6-18E2CF09227B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05750381-86FF-4559-B8A6-18E2CF09227B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2041E0D4-6C41-4C69-AE45-BC9761BC3D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2041E0D4-6C41-4C69-AE45-BC9761BC3D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2041E0D4-6C41-4C69-AE45-BC9761BC3D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2041E0D4-6C41-4C69-AE45-BC9761BC3D27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C8EF6C-D3C2-487E-91D6-BFCE0381320A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C8EF6C-D3C2-487E-91D6-BFCE0381320A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C8EF6C-D3C2-487E-91D6-BFCE0381320A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C8EF6C-D3C2-487E-91D6-BFCE0381320A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

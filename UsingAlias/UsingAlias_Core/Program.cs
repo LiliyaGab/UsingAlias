@@ -7,9 +7,11 @@ using TupleIntString = (int, string);
 using unsafe sp = System.Span<int>*;
 using D = dynamic[];
 
+
 namespace UsingAlias
 {
-    using TupleIntString = (int, string);
+    using TupleIntString = (int, string); //use this type alias where possible
+    using TupleIS = (int, string);
     using ArrInt = int[];
     using TupleRef = Tuple<int, int>;
     using ArrMulti = double[,,];
@@ -48,6 +50,24 @@ namespace UsingAlias
         public static void Method() {}
     }
 
+    public class CheckUseThisTypeAlias
+    {
+        private (int, string) tuple;
+
+        public void Method()
+        {
+            tuple = (3, "6");
+        }
+    }
+    unsafe class Util
+    {
+        public static void Log() { }
+
+        void Use()
+        {
+            delegate*<void> ptr1 = &Util.Log; //introduce type alias
+        }
+    }
     unsafe class Instance
     {
         void Use()

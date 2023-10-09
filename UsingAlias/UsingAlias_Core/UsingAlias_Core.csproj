@@ -13,4 +13,6 @@
     <ProjectReference Include="..\ProjectReference\ProjectReference.csproj" />
   </ItemGroup>
 
+  <Import Project="..\SharedProject\SharedProject.projitems" Label="Shared" />
+
 </Project>

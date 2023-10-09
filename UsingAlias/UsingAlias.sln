@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectReference", "Project
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multitarget", "Multitarget\Multitarget.csproj", "{02C8EF6C-D3C2-487E-91D6-BFCE0381320A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotSetLangVersion", "NotSetLangVersion\NotSetLangVersion.csproj", "{8ADB6C0B-C926-4200-8607-D96C564E9FAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotSetLangVersion", "NotSetLangVersion\NotSetLangVersion.csproj", "{8ADB6C0B-C926-4200-8607-D96C564E9FAE}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharedProject", "SharedProject\SharedProject.shproj", "{3D9C48BF-9237-444F-87D2-BF34DF509A4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,5 +47,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AED46504-0B01-4305-B278-1B5B48497C44}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedProject\SharedProject.projitems*{05750381-86ff-4559-b8a6-18e2cf09227b}*SharedItemsImports = 5
+		SharedProject\SharedProject.projitems*{3d9c48bf-9237-444f-87d2-bf34df509a4b}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal

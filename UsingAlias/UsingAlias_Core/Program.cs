@@ -1,5 +1,8 @@
-﻿using System.Collections;
-using System.Numerics;
+﻿using System.Globalization;
+using System.Security;
+using System.Security.Cryptography;
+using System.Windows.Input;
+using System.Drawing;
 using unsafe VoidTest = void*;
 using unsafe UnsafeInt = int*;
 using unsafe PPint = int**;
@@ -44,6 +47,9 @@ namespace UsingAlias
                 new TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw();
             ArrInt array = new int[] { };
             UnsafeT variable = Zero;
+            System.Security.Cryptography.Aes tAes = Aes.Create();
+            System.Security.SecureString secureString = new System.Security.SecureString();
+            int tempCompare = string.Compare("a", 4, "b", 5, 7, CultureInfo.CurrentCulture, CompareOptions.IgnoreCase);
         }
 
 
@@ -89,10 +95,10 @@ namespace UsingAlias
             this.u = u;
         }
 
-        public int CompareTo(object? other, IComparer comparer)
-        {
-            return ((IStructuralComparable)tuple).CompareTo(other, comparer);
-        }
+        //public int CompareTo(object? other, IComparer comparer)
+        //{
+        //    return ((IStructuralComparable)tuple).CompareTo(other, comparer);
+        //}
 
         public int Length => ((System.Runtime.CompilerServices.ITuple)tuple).Length;
 

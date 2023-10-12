@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using unsafe PPint = int*;
 
 namespace Framework
 {
@@ -13,6 +14,10 @@ namespace Framework
         static void Main(string[] args)
         {
             TupleIntString t = (5, "6");
+        }
+        static unsafe void SquarePtrParam(PPint p)
+        {
+            *p *= *p;
         }
     }
 }

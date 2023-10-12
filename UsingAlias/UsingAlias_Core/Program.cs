@@ -3,6 +3,8 @@ using System.Security;
 using System.Security.Cryptography;
 using System.Windows.Input;
 using System.Drawing;
+using ProjectReference;
+using SharedProject;
 using unsafe VoidTest = void*;
 using unsafe UnsafeInt = int*;
 using unsafe PPint = int**;
@@ -12,6 +14,7 @@ using TupleNamed = (bool flag, double num, string str);
 using unsafe sp = System.Span<int>*;
 using D = dynamic[];
 using unsafe UnsafeT = System.Numerics.BigInteger; //remove unsafe modifier
+using StrB = (string, bool);
 
 namespace UsingAlias
 {
@@ -50,6 +53,10 @@ namespace UsingAlias
             System.Security.Cryptography.Aes tAes = Aes.Create();
             System.Security.SecureString secureString = new System.Security.SecureString();
             int tempCompare = string.Compare("a", 4, "b", 5, 7, CultureInfo.CurrentCulture, CompareOptions.IgnoreCase);
+            Class1 tClass1 = new Class1(("", true))
+            {
+                Tm = ("t", true)
+            };
         }
 
 

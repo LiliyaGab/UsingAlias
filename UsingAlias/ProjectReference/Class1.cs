@@ -1,7 +1,13 @@
-﻿namespace ProjectReference
+﻿//using TestTm = (bool, int); //duplicate using
+using MyArr = int[,,];
+namespace ProjectReference
 {
+    using TestTm = (string, int);
+    using MyArr = double[,,];
     public class Point
     {
+        private MyArr a = new double[,,]{};
+        private TestTm t = ("", 5);
         private int x; // Do not rename (binary serialization)
         private int y; // Do not rename (binary serialization)
         public Point(int x, int y)

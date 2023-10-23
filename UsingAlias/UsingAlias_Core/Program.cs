@@ -1,44 +1,44 @@
 ﻿using System.Globalization;
 using System.Security;
 using System.Security.Cryptography;
-using System.Windows.Input;
-using System.Drawing;
+using System.Windows.Input; //Namespace imports page - no suggestion to remove unused
+using System.Drawing; //remove unused
 using ProjectReference;
 using SharedProject;
-using unsafe VoidTest = void*;
-using unsafe UnsafeInt = int*;
-using unsafe PPint = int**;
-using unsafe Arr = int*[];
-using TupleNamed = (bool flag, double num, string str);
+using unsafe VoidTest = void*; //Support of types containing pointers - void
+using unsafe UnsafeInt = int*; //Support of types containing pointers - built-in type
+using unsafe PPint = int**; //Support of types containing pointers - pointer to a pointer
+using unsafe Arr = int*[]; //Support of types containing pointers - array of pointers
+using TupleNamed = (bool flag, double num, string str); //Types - tuple named
 //using TupleIntString = (int, string);
 using unsafe sp = System.Span<int>*;
-using D = dynamic[];
-using unsafe UnsafeT = System.Numerics.BigInteger; //remove unsafe modifier
+using D = dynamic[]; //Types - dynamic
+using unsafe UnsafeT = System.Numerics.BigInteger; //Quick-fixes for unsafe - remove unsafe modifier
 using StrB = (string, bool);
 
 namespace UsingAlias
 {
-    using TupleIntString = (int, string); //use this type alias where possible
-    using TupleIS = (int, string);
+    using TupleIntString = (int, string); //Context actions - inline type alias
+    using TupleIS = (int, string); //Types - tuple unnamed
     using TupleRef = Tuple<int, int>;
-    using ArrMulti = double[,,];
-    using ArrJagged = char[][];
-    using NVT = int?;
-    //using NRT = string?; 
-    using NRTInside = List<string?>;
-    using Dyn = dynamic;
+    using ArrMulti = double[,,]; //Types - array - multidimensional
+    using ArrJagged = char[][]; //Types - array - jagged
+    using NVT = int?; //Types - nullable value type
+    using NRT = string?;  //Types - nullable reference type - top-level (not supported)
+    using NRTInside = List<string?>; //Types - nullable reference type - not top-level  supported
+    using Dyn = dynamic; //Types - dynamic
     using unsafe sp = Span<int>*;
-    using static UnsafeT;
-    //using UnsafeInt = int*; //Make using directive unsafe
+    using static UnsafeT; //Support of types containing pointers - using static
+    using UnsafeInt = int*; //Quick-fixes for unsafe - Make using directive unsafe
     //unsafe using Test = string;
-    using UserType = TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw;
-    using unsafe TypeUnsafe = TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw*;
-    using unsafe D = delegate* unmanaged[Stdcall, SuppressGCTransition]<int, int>;
-    using unsafe Del = delegate* unmanaged<string, delegate*<int>>;
-    using unsafe Deleg = delegate*<delegate* managed<string, int>, delegate*<string, int>>;
-    using unsafe EnumT = MyEnum;
-    using static unsafe TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw;
-    //using unsafe static Instance; //Move 'unsafe' modifier after 'static'
+    using UserType = TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Types - user defined type
+    using unsafe TypeUnsafe = TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw*; //Support of types containing pointers - custom type
+    using unsafe D = delegate* unmanaged[Stdcall, SuppressGCTransition]<int, int>; //Support of types containing pointers - delegate
+    using unsafe Del = delegate* unmanaged<string, delegate*<int>>; //Support of types containing pointers - delegate
+    using unsafe Deleg = delegate*<delegate* managed<string, int>, delegate*<string, int>>; //Support of types containing pointers - delegate
+    using unsafe EnumT = MyEnum; //Support of types containing pointers - enum
+    using static unsafe TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Support of types containing pointers - using static
+    using unsafe static Instance; //Quick-fixes for unsafe - Move 'unsafe' modifier after 'static'
 
     internal class Program
     {
@@ -50,8 +50,8 @@ namespace UsingAlias
                 new TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw();
             ArrInt array = new int[] { };
             UnsafeT variable = Zero;
-            System.Security.Cryptography.Aes tAes = Aes.Create();
-            System.Security.SecureString secureString = new System.Security.SecureString();
+            System.Security.Cryptography.Aes tAes = Aes.Create(); //Namespace imports page - no suggestion to remove namespace
+            System.Security.SecureString secureString = new System.Security.SecureString(); //remove redundant
             int tempCompare = string.Compare("a", 4, "b", 5, 7, CultureInfo.CurrentCulture, CompareOptions.IgnoreCase);
             Class1 tClass1 = new Class1(("", true))
             {
@@ -66,7 +66,7 @@ namespace UsingAlias
             {
                 static void Foo(List<Arr> arg)
                 {
-                        Bar(arg); //create from usage
+                        Bar(arg); //R# features - create from usage unsafe
                 }
             }
         }
@@ -77,7 +77,7 @@ namespace UsingAlias
         }
 
 
-        static void DoSmth(List<int> list, UserType userType) //change signature
+        static void DoSmth(List<int> list, UserType userType) //R# features - refactorings - change signature
         {
 
         }
@@ -93,7 +93,7 @@ namespace UsingAlias
         public static void Method() {}
     }
 
-    public class CheckUseThisTypeAlias //generate code
+    public class CheckUseThisTypeAlias //R features - generate code
     {
         private (int, string) tuple;
 
@@ -161,7 +161,7 @@ namespace UsingAlias
 
         void Use()
         {
-            delegate*<void> ptr1 = &Util.Log; //introduce type alias
+            delegate*<void> ptr1 = &Util.Log; //Context actions - introduce type alias on 'delegate*<void>'
         }
     }
     unsafe class Instance

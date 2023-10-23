@@ -1,4 +1,4 @@
-﻿//using TupleTest = (bool, char);
+﻿using TupleTest = (bool, char); // Quick fixes - set language version
 
 namespace NotSetLangVersion
 {

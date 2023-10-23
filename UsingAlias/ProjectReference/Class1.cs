@@ -1,13 +1,16 @@
-﻿//using TestTm = (bool, int); //duplicate using
-using MyArr = int[,,];
+﻿using TupleTe = (float, char); 
+using TupleTe = (bool, int, double); //duplicate top-level alias
+using MyArr = int[,,]; //duplucate alias
 namespace ProjectReference
 {
-    using TestTm = (string, int);
-    using MyArr = double[,,];
+    using TestT = (string, int);
+    using TestT = (char, bool); //duplicate alias inside namespace
+    using MyArr = double[,,]; //duplicate alias
     public class Point
     {
         private MyArr a = new double[,,]{};
-        private TestTm t = ("", 5);
+        private TupleTe t = (true, 4, 5.0);
+        private TestT t = ("", 5);
         private int x; // Do not rename (binary serialization)
         private int y; // Do not rename (binary serialization)
         public Point(int x, int y)

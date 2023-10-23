@@ -1,11 +1,11 @@
 ﻿
 using ForWpf = ProjectReference;
 using ForWinForms = System.Drawing;
-using NameValuePair = (string Name, object? Value);
+using NameValuePair = (string Name, object? Value); //Context actions - use this type alias where possible
 
 namespace UsingAlias_Core
 {
-    public class TreeChecker : ITreeProcessor<List<(string Name, object? Value)>> //use type alias
+    public class TreeChecker : ITreeProcessor<List<(string Name, object? Value)>> //Quick fixes - use type alias
     {
         public bool IsProcessFinished(List<(string Name, object? Value)> context)
         {
@@ -36,7 +36,8 @@ namespace UsingAlias_Core
 
     public class Converters
     {
-        //use namespace alias
+        System.Security.Cryptography.DES des = System.Security.Cryptography.DES.Create(); //Context actions - Introduce type alias for 'System.Security.Cryptography.DES'
+        //Quick fixes - use namespace alias
         public static ProjectReference.Point Convert(System.Drawing.Point point) => new ProjectReference.Point(point.X, point.Y);
     }
 }

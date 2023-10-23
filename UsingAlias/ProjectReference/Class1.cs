@@ -11,8 +11,8 @@ namespace ProjectReference
         private MyArr a = new double[,,]{};
         private TupleTe t = (true, 4, 5.0);
         private TestT t = ("", 5);
-        private int x; // Do not rename (binary serialization)
-        private int y; // Do not rename (binary serialization)
+        private int x; 
+        private int y; 
         public Point(int x, int y)
         {
             this.x = x;
@@ -24,9 +24,6 @@ namespace ProjectReference
             set => x = value;
         }
 
-        /// <summary>
-        /// Gets the y-coordinate of this <see cref='System.Drawing.Point'/>.
-        /// </summary>
         public int Y
         {
             get => y;

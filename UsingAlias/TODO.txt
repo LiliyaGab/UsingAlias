@@ -1,0 +1,2 @@
+1. How completion was checked?
+2. What was changed in Options? Formatter?

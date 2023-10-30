@@ -9,7 +9,7 @@ using unsafe VoidTest = void*; //Support of types containing pointers - void
 using unsafe UnsafeInt = int*; //Support of types containing pointers - built-in type
 using unsafe PPint = int**; //Support of types containing pointers - pointer to a pointer
 using unsafe Arr = int*[]; //Support of types containing pointers - array of pointers
-using TupleNamed = (bool flag, double num, string str); //Types - tuple named
+using TupleNamed = (bool flag, double num, string str); //Types - tuple named // TODO: add usages
 //using TupleIntString = (int, string);
 using unsafe sp = System.Span<int>*;
 using D = dynamic[]; //Types - dynamic
@@ -19,7 +19,7 @@ using StrB = (string, bool);
 namespace UsingAlias
 {
     using TupleIntString = (int, string); //Context actions - inline type alias
-    using TupleIS = (int, string); //Types - tuple unnamed
+    using TupleIS = (int, string); //Types - tuple unnamed // TODO: add usages
     using TupleRef = Tuple<int, int>;
     using ArrMulti = double[,,]; //Types - array - multidimensional
     using ArrJagged = char[][]; //Types - array - jagged
@@ -40,6 +40,48 @@ namespace UsingAlias
     using static unsafe TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Support of types containing pointers - using static
     using unsafe static Instance; //Quick-fixes for unsafe - Move 'unsafe' modifier after 'static'
 
+
+    class Usages
+    {
+	    // TODO: usages of named tuple alias
+	    public void
+		    UseNamedTuple(TupleNamed namedTuple,
+			    (bool flag, double num, string str) tuple2) // TODO: Inline alias CA: why not available on usage?
+	    {
+		    namedTuple = (false, 1, "Jane Doe"); // TODO: inlay hints of tuple's component names.
+		    namedTuple = (flag: false, num: 1, str: "Jane Doe"); // TODO: Rename on component name.
+		    namedTuple = (flag2: false, num: 1, str: "Jane Doe"); // TODO: not matching name inspection
+		    tuple2 = (flag: false, num: 1, str: "Jane Doe");
+
+	    }
+
+	    // TODO: usages of unnamed tuple alias
+	    public TupleIS UseUnnamedTuple(TupleIS tuple)
+	    {
+		    tuple.Item1 = 1;
+		    tuple.Item2 = "Jane Doe";
+		    //tuple = (1, "Jane Doe", 2); // TODO: unmatched types
+		    //tuple = ("Jane Doe", 1);
+		    return tuple;
+	    }
+
+	    public ArrInt UseSingleArray(ArrInt? arrInt, ArrInt normalArray) // TODO: fix nullability mismatch
+	    {
+            // TODO: check postfix templates are available and correct
+            //arrInt.for
+
+            arrInt = new[] { 1, 2, 3, 4 };
+            normalArray = new[] { 1, 2, 3 };
+            ArrInt arr = new[] { 1, 2, 3, 4 };
+
+            var ints = arrInt[1..3]; // TODO: type of variable
+            ArrInt ints2 = arrInt[1..^3];
+
+
+            return arrInt;
+	    }
+}
+
     internal class Program
     {
         static void Main(string[] args)
@@ -48,8 +90,8 @@ namespace UsingAlias
             //InstanceMethod();
             TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw t =
                 new TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw();
-            ArrInt array = new int[] { };
-            UnsafeT variable = Zero;
+			ArrInt array = new int[] { };
+			UnsafeT variable = Zero;
             System.Security.Cryptography.Aes tAes = Aes.Create(); //Namespace imports page - no suggestion to remove namespace
             System.Security.SecureString secureString = new System.Security.SecureString(); //remove redundant
             int tempCompare = string.Compare("a", 4, "b", 5, 7, CultureInfo.CurrentCulture, CompareOptions.IgnoreCase);
@@ -95,7 +137,7 @@ namespace UsingAlias
 
     public class CheckUseThisTypeAlias //R features - generate code
     {
-        private (int, string) tuple;
+        private TupleIS2 tuple;
 
         public CheckUseThisTypeAlias(Util u)
         {
@@ -135,7 +177,7 @@ namespace UsingAlias
             set => u = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public (int, string) Tuple => tuple;
+        public TupleIS2 Tuple => tuple;
 
         public Util U => u;
 

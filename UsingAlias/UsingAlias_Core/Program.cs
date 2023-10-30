@@ -9,7 +9,7 @@ using unsafe VoidTest = void*; //Support of types containing pointers - void
 using unsafe UnsafeInt = int*; //Support of types containing pointers - built-in type
 using unsafe PPint = int**; //Support of types containing pointers - pointer to a pointer
 using unsafe Arr = int*[]; //Support of types containing pointers - array of pointers
-using TupleNamed = (bool flag, double num, string str); //Types - tuple named // TODO: add usages
+using TupleNamed = (bool flag, double num, string str); //Types - tuple named // TODO: add usages for each type
 //using TupleIntString = (int, string);
 using unsafe sp = System.Span<int>*;
 using D = dynamic[]; //Types - dynamic
@@ -24,21 +24,21 @@ namespace UsingAlias
     using ArrMulti = double[,,]; //Types - array - multidimensional
     using ArrJagged = char[][]; //Types - array - jagged
     using NVT = int?; //Types - nullable value type
-    using NRT = string?;  //Types - nullable reference type - top-level (not supported)
+    //using NRT = string?;  //Types - nullable reference type - top-level (not supported)
     using NRTInside = List<string?>; //Types - nullable reference type - not top-level  supported
     using Dyn = dynamic; //Types - dynamic
     using unsafe sp = Span<int>*;
     using static UnsafeT; //Support of types containing pointers - using static
-    using UnsafeInt = int*; //Quick-fixes for unsafe - Make using directive unsafe
+    //using UnsafeInt = int*; //Quick-fixes for unsafe - Make using directive unsafe
     //unsafe using Test = string;
-    using UserType = TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Types - user defined type
+    using UserType = TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Types - user defined type // TODO: in other file, namespace, project
     using unsafe TypeUnsafe = TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw*; //Support of types containing pointers - custom type
     using unsafe D = delegate* unmanaged[Stdcall, SuppressGCTransition]<int, int>; //Support of types containing pointers - delegate
     using unsafe Del = delegate* unmanaged<string, delegate*<int>>; //Support of types containing pointers - delegate
     using unsafe Deleg = delegate*<delegate* managed<string, int>, delegate*<string, int>>; //Support of types containing pointers - delegate
-    using unsafe EnumT = MyEnum; //Support of types containing pointers - enum
+    using unsafe EnumT = MyEnum*; //Support of types containing pointers - enum
     using static unsafe TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Support of types containing pointers - using static
-    using unsafe static Instance; //Quick-fixes for unsafe - Move 'unsafe' modifier after 'static'
+    //using unsafe static Instance; //Quick-fixes for unsafe - Move 'unsafe' modifier after 'static'
 
 
     class Usages
@@ -97,31 +97,36 @@ namespace UsingAlias
             int tempCompare = string.Compare("a", 4, "b", 5, 7, CultureInfo.CurrentCulture, CompareOptions.IgnoreCase);
             Class1 tClass1 = new Class1(("", true))
             {
-                Tm = ("t", true)
+                Tm = (String.Empty, false)
             };
         }
 
 
         public void tt()
         {
-            unsafe
-            {
-                static void Foo(List<Arr> arg)
-                {
-                        Bar(arg); //R# features - create from usage unsafe
-                }
-            }
+	        unsafe
+	        {
+		        static void Foo(List<Arr> arg)
+		        {
+			        Bar(arg); //R# features - create from usage unsafe
+		        }
+	        }
         }
 
         private static unsafe void Bar(List<Arr> intsList)
         {
-            throw new NotImplementedException();
+	        throw new NotImplementedException();
         }
 
 
         static void DoSmth(List<int> list, UserType userType) //R# features - refactorings - change signature
         {
+            // TODO: what was checked?
+        }
 
+        static void UseDoSmth()
+        {
+            DoSmth(new List<int>(), new UserType());
         }
 
 
@@ -137,7 +142,7 @@ namespace UsingAlias
 
     public class CheckUseThisTypeAlias //R features - generate code
     {
-        private TupleIS2 tuple;
+        private TupleIS tuple;
 
         public CheckUseThisTypeAlias(Util u)
         {
@@ -177,7 +182,7 @@ namespace UsingAlias
             set => u = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public TupleIS2 Tuple => tuple;
+        //public TupleIS2 Tuple => tuple;
 
         public Util U => u;
 

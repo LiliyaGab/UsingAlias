@@ -20,6 +20,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageProject", "PackageProject\PackageProject.csproj", "{E7B17481-48BB-4A90-AB3D-ECAFC76BB7C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{C2231292-7E70-49AC-B51F-EB2FAE098818}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\PackageProject.1.0.0.nupkg = nuget\PackageProject.1.0.0.nupkg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +53,10 @@ Global
 		{8ADB6C0B-C926-4200-8607-D96C564E9FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ADB6C0B-C926-4200-8607-D96C564E9FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8ADB6C0B-C926-4200-8607-D96C564E9FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7B17481-48BB-4A90-AB3D-ECAFC76BB7C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7B17481-48BB-4A90-AB3D-ECAFC76BB7C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7B17481-48BB-4A90-AB3D-ECAFC76BB7C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7B17481-48BB-4A90-AB3D-ECAFC76BB7C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,7 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageProject", "PackageProject\PackageProject.csproj", "{E7B17481-48BB-4A90-AB3D-ECAFC76BB7C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PackageProject", "PackageProject\PackageProject.csproj", "{E7B17481-48BB-4A90-AB3D-ECAFC76BB7C4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{C2231292-7E70-49AC-B51F-EB2FAE098818}"
 	ProjectSection(SolutionItems) = preProject
@@ -65,6 +65,7 @@ Global
 		SolutionGuid = {AED46504-0B01-4305-B278-1B5B48497C44}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SharedProject\SharedProject.projitems*{02c8ef6c-d3c2-487e-91d6-bfce0381320a}*SharedItemsImports = 5
 		SharedProject\SharedProject.projitems*{05750381-86ff-4559-b8a6-18e2cf09227b}*SharedItemsImports = 5
 		SharedProject\SharedProject.projitems*{0d5e4dec-ca70-4593-90a3-fafc4dbe84df}*SharedItemsImports = 4
 		SharedProject\SharedProject.projitems*{3d9c48bf-9237-444f-87d2-bf34df509a4b}*SharedItemsImports = 13

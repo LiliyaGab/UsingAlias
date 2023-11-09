@@ -18,6 +18,8 @@ namespace Framework
         {
 	        TupleIntString t = (5, "6");
 	        NewMethod2(new[] { 1, 2, 3, 4, 5 }, new int[] { });
+            OOO oTuple = new OOO();
+            var tmp = oTuple.Item1.Tm.Item2;
         }
 
         private static void NewMethod2(newAlias a, newAlias b)

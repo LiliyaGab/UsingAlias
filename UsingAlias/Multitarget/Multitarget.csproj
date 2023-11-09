@@ -9,4 +9,6 @@
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
+  <Import Project="..\SharedProject\SharedProject.projitems" Label="Shared" />
+
 </Project>

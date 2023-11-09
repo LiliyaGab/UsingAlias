@@ -1,4 +1,7 @@
 ﻿using System.Globalization;
+using SharedProject;
+using SharedClass = (SharedProject.Class1, int);
+
 #if NET7_0
 using T = (string, int, bool);
 
@@ -18,13 +21,16 @@ internal class Program
 		Console.WriteLine("Hello, World!");
 		T tuple = new();
 		T a = new(); // TODO: navigation.
+		SharedClass clTuple = new SharedClass(new Class1(new ("", true)), 5);
 // TODO: use aliases in different contexts.
 #if NET7_0
 		tuple.Item1 = "Hello";
+        var f = Equals(clTuple.Item1.Tm.Item2, a.Item3);
 #else
 		tuple.Item1 = 5;
+        var f = Equals(clTuple.Item1.Tm.Item1[1], a.Item3);
 #endif
-	}
+    }
 
 	public unsafe class Util
 	{

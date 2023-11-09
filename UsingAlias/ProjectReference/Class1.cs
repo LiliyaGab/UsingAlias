@@ -40,8 +40,13 @@ namespace ProjectReference2
 	{
 		private MyArr Tm = new int[1,2,3]; // TODO: reference top level alias
 
-		//public void Test(Class2 parameter)
-		//{
-		//}
-	}
+        //public void Test(Class2 parameter)
+        //{
+        //}
+    }
+
+    public class MyClass
+    {
+        private Class2 tuple;
+    }
 }

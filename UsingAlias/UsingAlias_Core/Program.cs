@@ -34,19 +34,20 @@ namespace UsingAlias
     using UserType =
         TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Types - user defined type // TODO: in other file, namespace, project
     using unsafe TypeUnsafe =
-        TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw
-        *; //Support of types containing pointers - custom type
-    using unsafe D =
-        delegate* unmanaged[Stdcall, SuppressGCTransition]<int, int>; //Support of types containing pointers - delegate
+        TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw*; //Support of types containing pointers - custom type
+    using unsafe D = delegate* unmanaged[Stdcall, SuppressGCTransition]<int, int>; //Support of types containing pointers - delegate
     using unsafe Del = delegate* unmanaged<string, delegate*<int>>; //Support of types containing pointers - delegate
-    using unsafe Deleg =
-        delegate*<delegate* managed<string, int>, delegate*<string, int>
-        >; //Support of types containing pointers - delegate
+    using unsafe Deleg = delegate*<delegate* managed<string, int>, delegate*<string, int>>; //Support of types containing pointers - delegate
     using unsafe EnumT = MyEnum*; //Support of types containing pointers - enum
-    using static unsafe
-        TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Support of types containing pointers - using static
+    using static unsafe TypeWithLongNamewefsfsdvfsdvgsdgadsfwarweqfdshvbjhdbvsbdjfsdkhfkahsdjkcnjnxjnckjsdhfw; //Support of types containing pointers - using static
     //using unsafe static Instance; //Quick-fixes for unsafe - Move 'unsafe' modifier after 'static'
-
+    using Obs = (SomeClass, MyClass); //using obsolete type
+    using ArrayObs = SomeClass[];
+    using T = dynamic;
+    //using X = scoped int;
+    //using X = __makeref;
+    //using X = __arglist();
+    //using X = ref readonly int;
 
     class Usages
     {
@@ -117,6 +118,7 @@ namespace UsingAlias
         {
             Dyn dyn_ex = new Class1(("", false));
             D dynex = dyn_ex;
+            T d = dyn_ex;
         }
 
         public void UseOther()
@@ -124,6 +126,11 @@ namespace UsingAlias
             NVT v = new NVT();
             NRTInside list = new NRTInside();
             list.Add(null);
+            Obs tuple = (new SomeClass(), new MyClass());
+            Console.WriteLine(tuple.Item1.T);
+            ArrayObs array = new SomeClass[4];
+            Console.WriteLine(array[0]);
+            UnsafeT big = One;
         }
     }
 

@@ -104,6 +104,8 @@ namespace UsingAlias
                 PPint ppint = (PPint)iUnsafe;
                 TypeUnsafe typeWith = &exp;
                 Deleg deleg;
+                EnumT eEnum = (EnumT)tVoid;
+                
             }
         }
 
@@ -131,6 +133,7 @@ namespace UsingAlias
             ArrayObs array = new SomeClass[4];
             Console.WriteLine(array[0]);
             UnsafeT big = One;
+            Method();
         }
     }
 

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UnityEngine;
+//using Random = System.Random;
 
 namespace UsingAlias
 {
@@ -13,6 +10,8 @@ namespace UsingAlias
 
         public void Method()
         {
+            var rnd = UnityEngine.Random.Range(0,100); 
+            Random rand = new Random(); //use class qf with enabled 'use using alias directive to resolve conflicts'
             Console.WriteLine(T);
         }
     }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="PackageProject" Version="1.0.0" />
+    <PackageReference Include="Unity3D.SDK" Version="2021.1.14.1" />
   </ItemGroup>
 
   <ItemGroup>
